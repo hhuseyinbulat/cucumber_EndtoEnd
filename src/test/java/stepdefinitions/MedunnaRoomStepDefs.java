@@ -3,6 +3,7 @@ package stepdefinitions;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import pages.MedunnaHomePage;
@@ -68,8 +69,9 @@ public class MedunnaRoomStepDefs {
 
     @When("click on Save button")
     public void click_on_save_button() {
+        JavascriptExecutor executor = (JavascriptExecutor)Driver.getDriver();
+        executor.executeScript("arguments[0].click();", medunnaRoomPage.saveSubmitButton);
 
-        medunnaRoomPage.saveSubmitButton.click();
     }
 
 }
